@@ -5,6 +5,7 @@ import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import Menu from '@mui/material/Menu';
+import List from "@mui/material/List";
 import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
 import Avatar from '@mui/material/Avatar';
@@ -12,11 +13,14 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
+import ListItem from "@mui/material/ListItem";
+import ListItemButton from "@mui/material/ListItemButton";
+import ListItemText from "@mui/material/ListItemText";
+import { Link } from "react-router-dom";
 
-const pages = ['Products', 'Pricing'];
-const settings = ['Profile', 'Dashboard', 'Logout'];
+const pages = ['Home', 'Timetable'];
 
-function NavBar() {
+function NavBar({handleDrawerOpen,open}) {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -37,8 +41,21 @@ function NavBar() {
 
   return (
     <AppBar position="static">
+      
       <Container maxWidth="xl">
         <Toolbar disableGutters>
+        <IconButton
+            color="inherit"
+            aria-label="open drawer"
+            onClick={handleDrawerOpen}
+            edge="start"
+            sx={{
+              marginRight: 5,
+              ...(open && { display: "none" }),
+            }}
+          >
+            <MenuIcon />
+          </IconButton>
           <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
           <Typography
             variant="h6"  noWrap
@@ -58,6 +75,7 @@ function NavBar() {
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+
             <IconButton
               size="large"
               aria-label="account of current user"
@@ -129,11 +147,25 @@ function NavBar() {
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
-                </MenuItem>
-              ))}
+          <List>
+          <ListItem disablePadding sx={{ display: "block" }}>
+            <Link to="/profile" style={{ textDecoration: "none" }}>              
+            <ListItemButton>
+                Profile<ListItemText  sx={{ opacity: open ? 1 : 0 }} />
+              </ListItemButton>
+            </Link>
+            <Link to="/dashboard" style={{ textDecoration: "none" }}>
+              <ListItemButton>
+                Dashboard<ListItemText sx={{ opacity: open ? 1 : 0 }} />
+              </ListItemButton>
+            </Link>
+            <Link to="/logout" style={{ textDecoration: "none" }}>              
+            <ListItemButton>
+                Logout<ListItemText sx={{ opacity: open ? 1 : 0 }} />
+                </ListItemButton>
+            </Link>
+          </ListItem>
+        </List>
             </Menu>
           </Box>
         </Toolbar>
