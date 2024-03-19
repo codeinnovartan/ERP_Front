@@ -56,7 +56,7 @@ function NavBar({handleDrawerOpen,open}) {
           >
             <MenuIcon />
           </IconButton>
-          <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+  
           <Typography
             variant="h6"  noWrap
             component="a"
@@ -71,7 +71,15 @@ function NavBar({handleDrawerOpen,open}) {
               textDecoration: 'none',
             }}
           >
-            Innovartan
+              <Link to="/" style={{ textDecoration: "none",color:"white" }}>  
+              <img
+              alt=""
+              src="Images/innovartan.png"
+              width="200"
+              height="35"
+              className="d-inline-block align-top mt-3"
+            /> <ListItemText />
+            </Link>
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -161,7 +169,7 @@ function NavBar({handleDrawerOpen,open}) {
             </Link>
             <Link to="/logout" style={{ textDecoration: "none" }}>              
             <ListItemButton>
-                Logout<ListItemText sx={{ opacity: open ? 1 : 0 }} />
+                Logout<ListItemText primary={"Logout"} sx={{ opacity: open ? 1 : 0 }} />
                 </ListItemButton>
             </Link>
           </ListItem>
