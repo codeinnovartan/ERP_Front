@@ -73,7 +73,7 @@ function NavBar({handleDrawerOpen,open}) {
           >
               <Link to="/" style={{ textDecoration: "none",color:"white" }}>  
               <img
-              alt=""
+              alt=''
               src="Images/innovartan.png"
               width="200"
               height="35"
@@ -169,7 +169,7 @@ function NavBar({handleDrawerOpen,open}) {
             </Link>
             <Link to="/logout" style={{ textDecoration: "none" }}>              
             <ListItemButton>
-                Logout<ListItemText primary={"Logout"} sx={{ opacity: open ? 1 : 0 }} />
+                <ListItemText primary={"Logout"}  />
                 </ListItemButton>
             </Link>
           </ListItem>

@@ -10,6 +10,7 @@ import Home from "./Components/Pages/Home/Home";
 import Setting from "./Components/Pages/Setting/Setting";
 import Profile from "./Components/Pages/Profile/Profile";
 import Dashboard from "./Components/Pages/Dashboard/Dashboard";
+import Logout from "./Components/Pages/Logout/Logout";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route path="/settings" element={<Setting />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/logout" element={<Logout />} />
       </Routes>
     </BrowserRouter>
     // <div className="App">
