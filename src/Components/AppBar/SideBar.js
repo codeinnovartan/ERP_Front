@@ -87,7 +87,7 @@ const Drawer = styled(MuiDrawer, {
   }),
 }));
 
-const SideBar = () => {
+const SideBar = ({children}) => {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
 
@@ -181,6 +181,9 @@ const SideBar = () => {
           </ListItem>
         </List>
       </Drawer>
+      <Box>
+        {children}
+      </Box>
     </Box>
   );
 };
