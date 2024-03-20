@@ -118,7 +118,7 @@ const SideBar = ({children}) => {
         <Divider />
         <List>
           <ListItem disablePadding sx={{ display: "block" }}>
-            <Link to="/" style={{ textDecoration: "none" }}>
+            <Link to="/home" style={{ textDecoration: "none" }}>
               <ListItemButton
                 sx={{
                   minHeight: 48,
